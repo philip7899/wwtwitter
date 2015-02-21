@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'static_pages#main_page'
 
-   resources :tweets
+   resources 'tweets'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
