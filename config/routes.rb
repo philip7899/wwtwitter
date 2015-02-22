@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'static_pages#main_page'
 
-   resources 'tweets'
+   resources 'tweets', except: [:edit, :show, :update, :delete]
+
+   resources :relationships, only: :create
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

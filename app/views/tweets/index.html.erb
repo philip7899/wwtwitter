@@ -1,9 +1,27 @@
 
-	<% @tweets.each do |tweet| %>
-		<ul class="list-group">
-			<li class="list-group-item">
-				<%= tweet.content %> <br />
-				<b><%= tweet.user.email %></b>
-			</li>
-		</ul>
-	<% end %>
+<% @tweets.each do |tweet| %>
+	<ul class="list-group">
+		<li class="list-group-item">
+			<b><%= tweet.user.email %></b>
+
+			<% if current_user.following?(tweet.user) %>
+				<!--display an unfollow button -->
+
+				<button type="button" class="btn btn-danger">
+					Already Following
+				</button>
+
+			<% else %>
+				<!-- display follow button -->
+				<%= simple_form_for @relationship do |f|%>
+					<%= f.input :followed_id, as: :hidden, input_html: {value: tweet.user.id} %>
+					<%= f.button :submit, class: 'btn btn-primary', value: 'Follow' %>
+				<% end %>
+			<% end %>
+
+
+			<br />
+			<%= tweet.content %> 
+		</li>
+	</ul>
+<% end %>
