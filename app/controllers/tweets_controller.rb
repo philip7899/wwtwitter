@@ -11,10 +11,11 @@ class TweetsController < ApplicationController
 		@tweet.user = current_user
 		if @tweet.save
 			flash[:success] = "You have created a tweet"
+			redirect_to new_tweet_path
 		else
-			flash[:danger] = "Tweet must be shorter"
+			render 'new'
 		end
-		redirect_to new_tweet_path
+		
 	end
 
 	private
