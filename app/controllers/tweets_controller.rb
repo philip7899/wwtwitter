@@ -15,7 +15,10 @@ class TweetsController < ApplicationController
 		else
 			render 'new'
 		end
-		
+	end
+
+	def index
+		@tweets = Tweet.all
 	end
 
 	private
