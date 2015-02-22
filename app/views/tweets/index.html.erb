@@ -1,5 +1,9 @@
-<ul>
+
 	<% @tweets.each do |tweet| %>
-		<li><%= tweet.content %></li>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<%= tweet.content %> <br />
+				<b><%= tweet.user.email %></b>
+			</li>
+		</ul>
 	<% end %>
-</ul>
