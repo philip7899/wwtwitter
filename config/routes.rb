@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+
+
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +13,9 @@ Rails.application.routes.draw do
    resources 'tweets', except: [:edit, :show, :update, :delete]
 
    resources :relationships, only: :create
+
+
+   resources :profiles, only: [:new, :show, :create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
